@@ -9,9 +9,10 @@ from uuid import uuid4
 from django.core import serializers
 
 def home(request):
-	if not request.POST:
-		return render(request, 'upload/home.html', {'pics':FPImage.objects.all()})
-	elif request.is_ajax and request.method == "POST":
+	return render(request, 'upload/home.html', {'pics':FPImage.objects.all()})
+		
+def fp_ajax(request):
+	if request.is_ajax and request.method == "POST":
 		image_url = request.POST.get("data[url]")
 		file_ext = str(request.POST.get("data[data][filename]")).split(".")[-1]
 		file_name = str(uuid4()) + "." + file_ext
@@ -27,3 +28,4 @@ def home(request):
 		
 		json_response = serializers.serialize("json", [new_img])
 		return HttpResponse(json_response, mimetype="application/json")
+	

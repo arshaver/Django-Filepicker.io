@@ -9,7 +9,7 @@ admin.autodiscover()
 urlpatterns = patterns('',
     # Examples:
     url(r'^$', 'upload.views.home', name='home'),
-    # url(r'^filepicker/', include('filepicker.foo.urls')),
+    url(r'^fpajax/', 'upload.views.fp_ajax', name='filepicker-ajax'),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),

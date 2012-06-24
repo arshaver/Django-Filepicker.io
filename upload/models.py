@@ -7,7 +7,7 @@ class FPImage(models.Model):
 	image = models.ImageField(upload_to='images')
 
 	class Admin:
-		list_display = ('',)
+		list_display = ('image',)
 		search_fields = ('',)
 
 	def __unicode__(self):
