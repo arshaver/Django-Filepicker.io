@@ -7,6 +7,7 @@ from django.core.files.temp import NamedTemporaryFile
 import requests
 from uuid import uuid4
 from django.core import serializers
+from mimetypes import guess_extension
 
 def home(request):
 	return render(request, 'upload/home.html', {'pics':FPImage.objects.all()})
@@ -14,8 +15,8 @@ def home(request):
 def fp_ajax(request):
 	if request.is_ajax and request.method == "POST":
 		image_url = request.POST.get("data[url]")
-		file_ext = str(request.POST.get("data[data][filename]")).split(".")[-1]
-		file_name = str(uuid4()) + "." + file_ext
+		file_ext = guess_extension(str(request.POST.get("data[data][type]")))
+		file_name = str(uuid4()) + file_ext
 		
 		#from http://djangosnippets.org/snippets/2587/
 		req = requests.get(image_url)
