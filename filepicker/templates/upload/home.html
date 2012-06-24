@@ -25,9 +25,8 @@
 				<div class="modal-body" style="text-align:center;">
 					<h3>Processing images... please wait</h3>
 					<p>This can take a few moments if you uploaded a lot of images</p>
-					<img src="http://www.fdrlibrary.marist.edu/archives/fancybox/loading-spinner.gif">
 					<p>The page will refresh automatically</p>
-					
+					<img src="https://www.filepicker.io/static/img/spinner.gif">
 				</div>
 			</div>
 			<div class="row">
@@ -49,16 +48,16 @@
 
 	      <footer>
 	        <p>A project by <a href="mailto:anthony.r.shaver@gmail.com">Anthony Shaver</a></p>
-			<p>Source available on <a href="http://www.github.com/arshaver">GitHub</a></p>
+			<p>Source available on <a href="https://github.com/arshaver/Django-Filepicker.io">GitHub</a></p>
 	      </footer>		
 		</div><!-- /container -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
 		<script src="https://api.filepicker.io/v0/filepicker.js" type="text/javascript"></script>
-		
 		<script type="text/javascript">
 		//Seting up Filepicker.io with your api key
 		filepicker.setKey('{{FILEPICKER_API_KEY}}');
-
+		
+		
 		$(document).ready(function() {
 		    
 			//loading modal
@@ -83,7 +82,7 @@
 		            'services': ['My Computer', 'URL', 'Facebook', 'Gmail', 'Dropbox', 'Webcam', ]
 		        },
 		        function(data) {
-		            $.each(data,
+					$.each(data,
 		            function(index, value) {
 		                calls.push($.ajax({
 		                    type: "POST",
