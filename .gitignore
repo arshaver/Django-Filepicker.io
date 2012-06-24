@@ -1,0 +1,5 @@
+private_settings.py
+*.pyc
+filepicker/media
+.DS_Store
+*.db
