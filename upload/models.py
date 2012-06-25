@@ -3,12 +3,11 @@ from django.db import models
 # Create your models here.
 
 class FPImage(models.Model):
-	"""(FPImage description)"""
+	"""(An image uploaded from Filepicker.io)"""
 	image = models.ImageField(upload_to='images')
 
-	class Admin:
-		list_display = ('image',)
-		search_fields = ('',)
-
+	class Meta:
+		verbose_name = "filepicker.io image"
+		
 	def __unicode__(self):
-		return u"FPImage"
+		return u"%s" %str(self.image).split("/")[-1]
