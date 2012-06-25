@@ -1,7 +1,7 @@
 # Create your views here.
 from upload.models import FPImage
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
 from django.core.files import File
 from django.core.files.temp import NamedTemporaryFile
 import requests
@@ -29,4 +29,6 @@ def fp_ajax(request):
 		
 		json_response = serializers.serialize("json", [new_img])
 		return HttpResponse(json_response, mimetype="application/json")
+	else:
+		raise Http404
 	
