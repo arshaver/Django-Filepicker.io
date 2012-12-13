@@ -2,6 +2,7 @@
 
 A trivial image upload application demonstrating how to use [Django](https://www.djangoproject.com/ "Django") and [Filepicker.io](https://www.filepicker.io/ "Filepicker.io") together.
 
+###NOTE - this project has been superseded by the official [django-filepicker](https://github.com/Filepicker/django-filepicker) app.
 
 ###Setup
 
